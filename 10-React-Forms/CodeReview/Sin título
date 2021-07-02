@@ -1,0 +1,7 @@
+import { Route, Switch, HashRouter as Router, useRouteMatch } from 'react-router-dom';
+
+
+function Mostrar(props) {
+  let match = useRouteMatch("/ciudad/:idCiudad");
+  return (<span>Estoy en la ciudad {match.params.idCiudad}</span>)
+}
