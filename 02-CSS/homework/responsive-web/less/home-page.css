@@ -1,0 +1,120 @@
+.bor-rad {
+  border-radius: 20px;
+}
+.dsp-flx {
+  display: flex;
+}
+.home .intro h2 {
+  padding: 15px;
+}
+.home .intro p {
+  padding: 0 15px;
+}
+.home .intro img {
+  margin-top: 1%;
+  border-radius: 20px;
+  max-width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+@media (max-width: 500px) {
+  .home .intro img {
+    margin-top: 23%;
+  }
+}
+.home .music-images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.home .music-images img {
+  width: 28%;
+  margin: 20px 2.5%;
+  height: 100%;
+  border-radius: 20px;
+}
+@media (max-width: 500px) {
+  .home .music-images .tecnologia,
+  .home .music-images .ondas {
+    display: none;
+  }
+  .home .music-images .auricular {
+    width: 100%;
+  }
+}
+.home .musica-nueva {
+  padding: 15px;
+}
+.home .musica-nueva h3 {
+  margin-top: 11px;
+}
+.home .musica-nueva p {
+  margin-top: 13px;
+}
+.home .actual {
+  margin-top: 60px;
+  border-top: 1px solid #dee2e6;
+  padding: 50px 60px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .home .actual {
+    flex-direction: column-reverse;
+  }
+}
+.home .actual .actual-text {
+  width: 50%;
+}
+.home .actual .actual-text h3 {
+  margin-bottom: 10px;
+}
+.home .actual .actual-text p {
+  margin-bottom: 26px;
+}
+@media (max-width: 500px) {
+  .home .actual .actual-text {
+    width: 120%;
+    margin-left: -15%;
+  }
+}
+.home .actual .actual-text .btn {
+  background-color: #22283A;
+  color: #F6F7F8;
+  width: 28%;
+  font-size: 15px;
+  padding: 3%;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.home .actual .actual-text .btn:hover {
+  background-color: lightgreen;
+  color: lightblue;
+  font-family: cursive;
+}
+@media (max-width: 500px) {
+  .home .actual .actual-text .btn {
+    width: 110%;
+    text-align: center;
+    margin-bottom: -10%;
+  }
+}
+.home .actual .actual-img {
+  width: 46%;
+  margin-left: 4%;
+}
+@media (max-width: 500px) {
+  .home .actual .actual-img {
+    width: 140%;
+    margin: 0%;
+    justify-content: center;
+    margin-top: -15%;
+    margin-left: -20%;
+    margin-bottom: 4%;
+  }
+}
+.home .actual .actual-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

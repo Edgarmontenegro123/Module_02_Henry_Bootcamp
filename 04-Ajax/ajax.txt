@@ -1,0 +1,76 @@
+/* 
+$.ajax({
+    url: '/script.cgi',
+    type: 'DELETE',
+    success: function(result) {
+        
+    }
+}) 
+*/
+
+//Functions
+const refresh = async function(){
+    // GET AJAX
+    await $.get( "http://localhost:5000/amigos", function( data ) {
+        let ul = document.getElementById('lista')
+        ul.innerHTML = ""
+        data.forEach(amigo => {
+            var li = document.createElement('li')
+            li.id = amigo.id
+            li.innerHTML = amigo.name + "<strong style='cursor:pointer'>"+ " X" +"</strong>"
+            ul.appendChild(li)
+        })
+    });
+
+    Array.from(document.getElementsByTagName('strong')).forEach(e => {e.addEventListener('click', (e => del(e.target.parentElement.id)))})
+}
+
+let del = async function (e){
+
+    await  $.ajax({
+        url: `http://localhost:5000/amigos/${e}`,
+        type: 'DELETE',
+        success: function(result) {
+            document.getElementById('sucess').innerHTML = "Amigo borrado"
+            inputDelete.value = ""
+        }
+    }) 
+
+    refresh()
+}  
+
+let deleteOne = async function(){
+    let inputDelete = document.getElementById("inputDelete")
+
+    await  $.ajax({
+        url: `http://localhost:5000/amigos/${inputDelete.value}`,
+        type: 'DELETE',
+        success: function(result) {
+            document.getElementById('sucess').innerHTML = "Amigo borrado"
+            inputDelete.value = ""
+        }
+    }) 
+
+    refresh()
+};
+
+//Events
+$('#boton').click(refresh);
+
+$('#search').click(function(){
+    let inputValue = document.getElementById("input")
+
+    $.get( `http://localhost:5000/amigos/${inputValue.value}`, function( data ) {
+        
+        let span = document.getElementById('amigo')
+        span.innerHTML = ""
+        span.innerHTML = data
+        span.innerHTML = data.name
+        inputValue.value = ""
+    }).catch(function(){
+        let span = document.getElementById('amigo')
+        span.innerHTML = "no se encontró el amigo"
+    })
+});
+
+$('#delete').click(deleteOne)
